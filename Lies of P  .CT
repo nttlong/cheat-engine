@@ -147,21 +147,23 @@ LOP-Win64-Shipping.exe+1B03936: 49 8B 5B 20        - mov rbx,[r11+20]
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>
-  <LuaScript>function running()
-  hp_address = 0xA09E802C
+  <LuaScript>address =0xA09E802C
+max_value=500000000
+function running()
+
+  hp_address= address+0xD20
   sm_address= hp_address+0xd50
 
   hp_value = readInteger(hp_address)
   sm_value = readInteger(sm_address)
-    if hp_value &lt; 50000 then
-      writeInteger(hp_address, 50000)
+    if hp_value &lt; max_value then
+      writeInteger(hp_address, max_value)
     end
-    if sm_value &lt; 50000 then
-      writeInteger(sm_address, 50000)
+    if sm_value &lt; max_value then
+      writeInteger(sm_address, max_value)
     end
 end
 running()
-local thread = coroutine.create(running)
-coroutine.resume(thread)
+
 </LuaScript>
 </CheatTable>
