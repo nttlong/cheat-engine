@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CheatTable CheatEngineTableVersion="45">
   <Forms>
-    <UDF1 Class="TCEForm" Encoding="Ascii85">JHx:h5E9@Kz#ii4;Xu*W%M$A1X2^{]npVQh%E.!Cnwg$a!mP?}9Fkwal+AgInNpI$yoQO[F{WnOEY($bucRnHhn;@e*v2[kBtOrP-8r$KBr]vc4QvjNb53SzUJ2Y3ZU]S^3Ik@dOe4Ysu-#0VP@,1Az(3k9Y-Xx{n}%]I5t5kXUzCzs#02yT0^^</UDF1>
+    <UDF1 Class="TCEForm" Encoding="Ascii85">d%)cJ5E9@Kz#ii4;Xu*W%M$A1X2^{]npVQh%E.!Cnwg$a!mP?}9Fkwal+AgInNpI$yoQO[F{WnOEY($bucRnHhn;@e*v2[kBtOrP-8r$KBr]vc4QvjNb53SzUJ2Y3ZU]S^3YU,wPgrVEF-SeTksb(dFmQ(z3]3X-b]Mh}*HzH#VAps-T+FiWw-cd)BP21(zbGZOhzaOD1@?</UDF1>
     <UDF1_1 Class="TCEForm" Encoding="Ascii85">d(I!N5E9@Kz#ii4;Xu*W%NFY5W+BeC.++,I!pzFZ:8;A2o;9WA%ETO!U%-@a8lIU[lEJ*(iPtf=B)p5lIX_zYC[jgt*7jOjw4?_I(yd_Yv7jU}KaY)CWD/^aPG*Le3EUKJ2p=t(myfegSZYx+NIkoe9tavRaE8DPLzoJ74@t-8IZQfW+LXo)!(Cvc6QO{4Br)aqC=(Os3Ftuv00</UDF1_1>
     <UDF1_2 Class="TCEForm" Encoding="Ascii85">d(I!N5E9@Kz#ii4;Xu*W%NFY5W+Be8.++,I!pzFZ:8;A2o;9WA%ETO!U%-@a8lIU[lEJ*(iPtf=B)p5lIX_zYC[jgt*7jOjw4?_I(yd_Yv7jU}KaY)CWD/^aPG*Le3EUKJ2p=t(myfegSZYx+NIkoe9tavRaE8DPLzoJ74@t-8IZQfW+LXo)!(Cvc6QO{4Br)aqC=(Os3Ftuv00</UDF1_2>
   </Forms>
-  <CheatEntries/>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"7FF3AE4BD3FC – 7FF40C59DA94 = -5E0E0698"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>7FF3AE4BD3FC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"No description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>7FF40C59DA94</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"No description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>7FF3AE4BD3D8</Address>
+    </CheatEntry>
+  </CheatEntries>
   <UserdefinedSymbols>
     <SymbolEntry>
       <Name>BLucre</Name>
@@ -44,8 +63,8 @@ It would be a great help for me to cover my living expenses so I can focus on ma
 ----------------------
 © ColonelRVH, 2017
 </Comments>
-  <LuaScript>hp_address = 0x7FF3D553D16C
-hp_address_max=0x7FF3D553D148
+  <LuaScript>hp_address = 0x7FF3AE4BD3FC
+hp_address_max=hp_address-0x24
 
 value=99
 limit_value=54000
@@ -59,6 +78,8 @@ for x = 0, 7 do
   a_text = string.format("%x", a)
   print("x:", a_text)
   writeInteger(hp_address+x*0x4,value)
+  val= readInteger(hp_address+x*0x4)
+  print(val)
 end
 writeInteger(hp_address_max,limit_value)
 writeInteger(hp_address_max+0xC,limit_value)
