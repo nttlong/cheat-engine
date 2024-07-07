@@ -77,8 +77,8 @@ for x = 0, 7 do
   a=hp_address+x*0x4
   a_text = string.format("%x", a)
   print("x:", a_text)
-  writeInteger(hp_address+x*0x4,value)
-  val= readInteger(hp_address+x*0x4)
+  writeInteger(a,value)
+  val= readInteger(a)
   print(val)
 end
 writeInteger(hp_address_max,limit_value)
